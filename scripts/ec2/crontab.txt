@@ -1,0 +1,2 @@
+0 2 * * * /home/ubuntu/scripts/log-upload.sh
+0 3 * * * /home/ubuntu/scripts/db-backup.sh

@@ -2,8 +2,8 @@
 
 # Degiskenler
 EC2_USER="ubuntu"
-EC2_IP="54.84.219.206"
-KEY_PATH="/c/Users/ozsen/.ssh/vprofile-key.pem"
+EC2_IP="<EC2_PUBLIC_IP>"
+KEY_PATH="$HOME/.ssh/<ANAHTAR_DOSYASI>.pem"
 
 echo "[1/2] Degisiklikler GitHub'a gonderiliyor..."
 git add .
