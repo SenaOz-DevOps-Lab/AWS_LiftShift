@@ -3,7 +3,7 @@
 # Degiskenler
 EC2_USER="ubuntu"
 EC2_IP="54.84.219.206"
-KEY_PATH="~/.ssh/vprofile-key.pem"
+KEY_PATH="/c/Users/ozsen/.ssh/vprofile-key.pem"
 
 echo "[1/2] Degisiklikler GitHub'a gonderiliyor..."
 git add .
