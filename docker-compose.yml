@@ -1,0 +1,40 @@
+services:
+  vprodb:
+    build: ./Docker-files/db
+    environment:
+      - MYSQL_ROOT_PASSWORD=vprodbpass
+    volumes:
+      - vprodbdata:/var/lib/mysql
+    restart: always
+
+  vprocache01:
+    image: memcached
+    restart: always
+
+  vpromq01:
+    image: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    restart: always
+
+  vproapp:
+    build:
+      context: .
+      dockerfile: Docker-files/app/Dockerfile
+    depends_on:
+      - vprodb
+      - vprocache01
+      - vpromq01
+    restart: always
+
+  vproweb:
+    build: ./Docker-files/web
+    ports:
+      - "80:80"
+    depends_on:
+      - vproapp
+    restart: always
+
+volumes:
+  vprodbdata: {}
